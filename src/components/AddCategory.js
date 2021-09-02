@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types';
 
-export const AddCategory = () => {
+export const AddCategory = ({setCategories}) => {
     
     const [inputValue, setInputValue] = useState("");
     const handleInputChange = (e)=>{
@@ -10,6 +11,13 @@ export const AddCategory = () => {
     //Esta funcion es para evitar que todo el navegador haga un refresh al hacer submit del formulario
     const handleSubmit = (e)=>{
         e.preventDefault();
+        
+        if (inputValue.trim().length>2){
+            setCategories(c =>[...c, inputValue]);
+            setInputValue("");
+
+        }
+
     }
     
     return (
@@ -22,3 +30,6 @@ export const AddCategory = () => {
         </form>
     )
 };
+AddCategory.propTypes={
+    setCategories: PropTypes.func.isRequired
+}
