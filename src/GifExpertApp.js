@@ -7,24 +7,30 @@ export const GifExpertApp = () => {
     
     const [categories, setCategories] = useState(["Naruto"]);
     
-    /* const handleAdd =()=>{
-        
-        //hay 2 maneras correctas
-        //setCategories([...categories, "HunterXHunter"])
-        //setCategories(c =>[...c, "HunterXHunter"]);
-        
-    }*/
+    
     return (
         <>
-           <h2>Gif Expert App</h2> 
-           <AddCategory setCategories={setCategories}/>
+           <header id="header">
+           <img className="animate__animated animate__bounceInDown" src="https://cdn.worldvectorlogo.com/logos/giphy-logo-1.svg" alt=""></img>
+                <h1 className="animate__animated animate__tada">GIPHY</h1> 
+           </header>
+
+           <menu id="buscar">
+                <AddCategory setCategories={setCategories}/>
+            </menu>
+           
            <hr />
            
-           { <ol>
-               {
-                   categories.map(category => <GifGrid key={category} category={category}/> )
-               }
-           </ol> }
+           {<section className="section">
+               <ol>
+                    {
+                        categories.map(category => <GifGrid key={category} category={category}/> )
+                    }
+                </ol> 
+            </section>}
+
+            
+           
         </>
     )
 }

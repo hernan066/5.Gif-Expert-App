@@ -13,7 +13,7 @@ export const AddCategory = ({setCategories}) => {
         e.preventDefault();
         
         if (inputValue.trim().length>2){
-            setCategories(c =>[...c, inputValue]);
+            setCategories(c =>[ inputValue, ...c]);
             setInputValue("");
 
         }
@@ -21,13 +21,24 @@ export const AddCategory = ({setCategories}) => {
     }
     
     return (
-        <form onSubmit= {handleSubmit}>
-            <input 
-                type="text"
-                value={inputValue}
-                onChange={handleInputChange}
-            ></input>
-        </form>
+        <>
+            <div id="buscar-input">
+                <form onSubmit= {handleSubmit}>
+                    <input 
+                        type="text"
+                        value={inputValue}
+                        onChange={handleInputChange}
+                    ></input>
+                </form> 
+
+            </div>
+            <div id="buscar-logo">
+                 <img src="https://giphy.com/static/img/search-icon.svg" alt=""></img> 
+            </div>
+        
+        
+        </>
+    
     )
 };
 AddCategory.propTypes={
