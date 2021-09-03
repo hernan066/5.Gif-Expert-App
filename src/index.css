@@ -71,6 +71,7 @@ section h2{
   font-size: 28px;
   font-family: nexablack, sans-serif;
   letter-spacing: 2px;
+  text-transform: capitalize;
   
 }
 
